@@ -1,0 +1,127 @@
+var salesTeam = [
+      {
+          "name": {"first": "Aleen", "last" :"Atkins"}, 
+          "sales" : "$2314", 
+          "branch": "Austin, TX"
+      },{
+          "name": {"first": "Alvaro", "last" :"Angelos"}, 
+          "sales" : "$1668", 
+          "branch": "New York City, NY"
+      },{
+          "name": {"first": "Denese", "last" :"Dossett"}, 
+          "sales" : "$9248", 
+          "branch": "Austin, TX"
+      },{
+          "name": {"first": "Douglas", "last" :"Denney"}, 
+          "sales" : "$5058", 
+          "branch": "New York City, NY"
+      },{
+          "name": {"first": "Earline", "last" :"Erickson"}, 
+          "sales" : "$18876", 
+          "branch": "New York City, NY"
+      },{
+          "name": {"first": "Herman", "last" :"Hazell"}, 
+          "sales" : "$2746", 
+          "branch": "New York City, NY"
+      },{
+          "name": {"first": "Homer", "last" :"Hirth"}, 
+          "sales" : "$474", 
+          "branch": "Orlando, FL"
+      },{
+          "name": {"first": "Hwa", "last" :"Heidt"}, 
+          "sales" : "$9607", 
+          "branch": "San Francisco, CA"
+      },{
+          "name": {"first": "Hyon", "last" :"Hampshire"}, 
+          "sales" : "$13598", 
+          "branch": "New York City, NY"
+      },{
+          "name": {"first": "Issac", "last" :"Ingerson"}, 
+          "sales" : "$5225", 
+          "branch": "Austin, TX"
+      },{
+          "name": {"first": "Jeraldine", "last" :"Joplin"}, 
+          "sales" : "$2891", 
+          "branch": "New York City, NY"
+      },{
+          "name": {"first": "Jin", "last" :"Jeffrey"}, 
+          "sales" : "$14402", 
+          "branch": "Austin, TX"
+      },{
+          "name": {"first": "Joleen", "last" :"Jolin"}, 
+          "sales" : "$15736", 
+          "branch": "Austin, TX"
+      },{
+          "name": {"first": "Jude", "last" :"Jarrett"}, 
+          "sales" : "$7557", 
+          "branch": "San Francisco, CA"
+      },{
+          "name": {"first": "Magda", "last" :"Mireles"}, 
+          "sales" : "$1498", 
+          "branch": "Austin, TX"
+      },{
+          "name": {"first": "Mistie", "last" :"Montealegre"}, 
+          "sales" : "$6920", 
+          "branch": "New York City, NY"
+      },{
+          "name": {"first": "Nancy", "last" :"Napoli"}, 
+          "sales" : "$5255", 
+          "branch": "New York City, NY"
+      },{
+          "name": {"first": "Regine", "last" :"Rohrbaugh"}, 
+          "sales" : "$7881", 
+          "branch": "Orlando, FL"
+      },{
+          "name": {"first": "Rolando", "last" :"Riebel"}, 
+          "sales" : "$8573", 
+          "branch": "San Francisco, CA"
+      },{
+          "name": {"first": "Scarlett", "last" :"Stagg"}, 
+          "sales" : "$7126", 
+          "branch": "Orlando, FL"
+      },{
+          "name": {"first": "Sherron", "last" :"Strawn"}, 
+          "sales" : "$8848", 
+          "branch": "New York City, NY"
+      },{
+          "name": {"first": "Susan", "last" :"Shilling"}, 
+          "sales" : "$8542", 
+          "branch": "Seattle, WA"
+      },{
+          "name": {"first": "Tama", "last" :"Tworek"}, 
+          "sales" : "$9200", 
+          "branch": "Seattle, WA"
+      },{
+          "name": {"first": "Tonisha", "last" :"Taunton"}, 
+          "sales" : "$5219", 
+          "branch": "Orlando, FL"
+      },{
+          "name": {"first": "Vergie", "last" :"Villescas"}, 
+          "sales" : "$8712", 
+          "branch": "New York City, NY"
+      }
+  ];
+  
+   var salesPerBranch = function (data){
+    //loop thru array
+    //intl obj var, maybe use map? 
+    // intl total sales to 0
+    var totalSales = {}; 
+    var total = 0;
+    var newData = data.map(obj => {
+        return [obj.branch, Number(obj.sales.slice(1))];
+    }).forEach(arr =>{
+        if(totalSales[arr[0]]===undefined){
+            totalSales[arr[0]] = arr[1];
+        } else {
+            totalSales[arr[0]] = total+=arr[1]; 
+        }
+    });
+    return totalSales;
+    //for each object, set branch to a var, set sales to a var converting to number and omitting the dollarsign
+    //if obj.branch does not exist, 
+        //set it to that, and the value as total plus obj.sales
+    //return the obj
+  } 
+
+  console.log(salesPerBranch(salesTeam)); 
